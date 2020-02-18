@@ -88,14 +88,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">CPF</span>
               </div>
-              <input name="cpf" required type="text" class="form-control" placeholder="Ex.: 123.456.789-00">
+              <input id="cpf" name="cpf" type="text" class="form-control" placeholder="Ex.: 123.456.789-00">
             </div>
           </div>
 
           <!-- input RG -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <input name="rg" required type="text" class="form-control" placeholder="Ex.: 12.345.678-9">
+              <input id="rg" name="rg" type="text" class="form-control" placeholder="Ex.: 12.345.678-9">
               <div class="input-group-append">
                 <span class="input-group-text">RG</span>
               </div>
@@ -190,7 +190,7 @@
           <!-- input data de nascimento -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <input name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24-12-2003">
+              <input id="data_nasc" name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24-12-2003">
               <div class="input-group-append">
                 <span class="input-group-text">Data de Nascimento</span>
               </div>
@@ -205,14 +205,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Telefone</span>
               </div>
-              <input name="telefone" required type="text" class="form-control" placeholder="Ex.: (11)4564-4335">
+              <input id="telefone" name="telefone" required type="text" class="form-control" placeholder="Ex.: (11)4564-4335">
             </div>
           </div>
 
           <!-- input celular -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <input name="celular" required type="text" class="form-control" placeholder="Ex.: (11)99754-3345">
+              <input id="celular" name="celular" required type="text" class="form-control" placeholder="Ex.: (11)99754-3345">
               <div class="input-group-append">
                 <span class="input-group-text">Celular</span>
               </div>
@@ -238,6 +238,7 @@
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
     <!-- mask js -->
     <script src="../vendor/jquery/jquery.mask.js"></script>
+    <script src="modules/mask.js"></script>
 
   </body>
 </html>
