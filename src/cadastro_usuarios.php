@@ -16,6 +16,8 @@
 		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
 		<!-- global css -->
 		<link rel="stylesheet" href="global.css">
+    <!-- personal css -->
+    <link rel="stylesheet" href="cadastro.css">
 
   </head>
   <body>
@@ -25,10 +27,6 @@
     require_once 'modules/permissions.php';
     // importar modulo de conexao com o banco de dados
     require_once 'modules/bd_connect.php';
-    // importar modulo de cadastro
-    if(isset($_POST['btn_cadastro'])):
-      require_once 'modules/cadastro.php';
-    endif;
     // importar navbar
     require_once 'modules/navbar.php';
     ?>
@@ -37,7 +35,10 @@
     <center>
       <a id="title">Cadastrar Usuário</a>
     </center>
-
+    <?php // importar modulo de cadastro
+    if(isset($_POST['btn_cadastro'])){
+      require_once 'modules/cadastro.php';
+    } ?>
     <!-- formulário cadastrar -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <div class="container w-50 p-3" style="background-color: rgba(0,0,0,0.3)">
@@ -109,8 +110,8 @@
               <div class="input-group-prepend">
                 <label class="input-group-text" for="sexo">Sexo</label>
               </div>
-              <select name="sexo" class="custom-select" id="sexo">
-                <option selected>Escolha...</option>
+              <select name="sexo" class="custom-select" id="sexo" required>
+                <option value="">Escolha...</option>
                 <option value="1">Masculino</option>
                 <option value="2">Feminino</option>
               </select>
@@ -120,8 +121,8 @@
           <!-- input distinção -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <select name="distincao" class="custom-select" id="distincao">
-                <option selected>Escolha...</option>
+              <select name="distincao" class="custom-select" id="distincao" required>
+                <option value="">Escolha...</option>
                 <option value="1">Bibliotecário</option>
                 <option value="2">Professor</option>
                 <option value="3">Aluno</option>
@@ -142,8 +143,8 @@
               <div class="input-group-prepend">
                 <label class="input-group-text" for="curso">Curso</label>
               </div>
-              <select name="curso" class="custom-select" id="curso">
-                <option selected>Escolha...</option>
+              <select name="curso" class="custom-select" id="curso" required>
+                <option value="">Escolha...</option>
                 <option value="1">Desenvolvimento de Sistemas</option>
                 <option value="2">Desgin de Interiores</option>
                 <option value="3">Edificações</option>
@@ -156,8 +157,8 @@
           <!-- input série -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <select name="serie" class="custom-select" id="serie">
-                <option selected>Escolha...</option>
+              <select name="serie" class="custom-select" id="serie" required>
+                <option value="">Escolha...</option>
                 <option value="1">1°Ano</option>
                 <option value="2">2°Ano</option>
                 <option value="3">3°Ano</option>
@@ -176,8 +177,8 @@
               <div class="input-group-prepend">
                 <label class="input-group-text" for="turno">Turno</label>
               </div>
-              <select name="turno" class="custom-select" id="turno">
-                <option selected>Escolha...</option>
+              <select name="turno" class="custom-select" id="turno" required>
+                <option value="">Escolha...</option>
                 <option value="1">Manhã</option>
                 <option value="2">Tarde</option>
                 <option value="3">Noite</option>
