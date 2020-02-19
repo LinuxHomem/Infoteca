@@ -23,6 +23,8 @@ botao.addEventListener("click", function () {
                     titulo: volume.title,
                     descricao: volume.description,
                     dataPublicacao: volume.publishedDate,
+                    autores: volume.authors,
+                    categorias: volume.categories,
                     imgUrl: imgCaminho.thumbnail
                 }
 
