@@ -14,10 +14,10 @@
 		<!-- import css -->
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
-		<!-- global css -->
-		<link rel="stylesheet" href="global.css">
     <!-- personal css -->
     <link rel="stylesheet" href="cadastro.css">
+    <!-- global css -->
+    <link rel="stylesheet" href="global.css">
 
   </head>
   <body>

@@ -24,9 +24,16 @@
     require_once 'modules/navbar.php';
     // importar modulo de conexao com o banco de dados
     require_once 'modules/bd_connect.php';
-    // importar modulo de pesquisa
-    require_once 'modules/search.php';
     ?>
+
+    <center><a style="font-size: 40px;" id="title">Resultados da Pesquisa: <?php echo $_GET['search']; ?></a></center>
+
+    <div class="container w-75">
+      <?php
+      // importar modulo de pesquisa
+      require_once 'modules/search.php';
+        ?>
+    </div>
 
     <!-- import js -->
     <!-- jquery js -->
