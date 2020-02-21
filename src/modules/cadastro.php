@@ -59,21 +59,42 @@
     $erros[] = '<li class="error">Sua senha precisa ter pelo menos um numero</li>';
   }
 
-  // verificar se tem erros
-  if(!empty($erros)){
-    echo "<center>";
-    foreach ($erros as $value) {
-      echo $value;
+    $sql = "SELECT login FROM usuarios WHERE login = '$login'";
+    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
+      $erros[] = '<li class="error">O login informado já está em uso</li>';
     }
-    echo "</center>";
-  }else{
-    $sql = "INSERT INTO usuarios (`id`, `senha`, `nome`, `email`, `cpf`, `rg`, `sexo`, `data_nasc`, `data_adc`, `telefone`, `celular`, `serie`, `curso`, `distincao`, `turno`, `login`) VALUES (NULL, MD5('$senha'), '$nome', '$email', '$cpf', '$rg', '$sexo', '$data_nasc', '$data_adc', '$telefone', '$celular', '$serie', '$curso', '$distincao', '$turno', '$login');";
-    if (mysqli_query($connect, $sql)){
-      // PAG CADASTRADOS
+
+    $sql = "SELECT email FROM usuarios WHERE email = '$email'";
+    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
+      $erros[] = '<li class="error">O email informado já está cadastrado</li>';
+    }
+
+    $sql = "SELECT cpf FROM usuarios WHERE cpf = '$cpf'";
+    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
+      $erros[] = '<li class="error">O CPF informado já está cadastrado</li>';
+    }
+    
+    $sql = "SELECT rg FROM usuarios WHERE rg = '$rg'";
+    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
+      $erros[] = '<li class="error">O RG informado já está cadastrado</li>';
+    }
+
+
+    // verificar se tem erros
+    if(!empty($erros)){
+      echo "<center>";
+      foreach ($erros as $value) {
+        echo $value;
+      }
+      echo "</center>";
     }else{
-      echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+      $sql = "INSERT INTO usuarios (`id`, `senha`, `nome`, `email`, `cpf`, `rg`, `sexo`, `data_nasc`, `data_adc`, `telefone`, `celular`, `serie`, `curso`, `distincao`, `turno`, `login`) VALUES (NULL, MD5('$senha'), '$nome', '$email', '$cpf', '$rg', '$sexo', '$data_nasc', '$data_adc', '$telefone', '$celular', '$serie', '$curso', '$distincao', '$turno', '$login');";
+      if (mysqli_query($connect, $sql)){
+      // PAG CADASTRADOS
+      }else{
+        echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+      }
     }
-  }
 
   mysqli_close($connect);
 
