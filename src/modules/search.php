@@ -11,16 +11,13 @@
     while ($row = mysqli_fetch_array($resultado, MYSQLI_ASSOC)):
 
       $id = $row['id'];
-      $auto = $row['autor'];
+      $autor = $row['autor'];
       $titulo = $row['titulo'];
       $ano_pub = $row['ano_pub'];
       $lba = $row['lba'];
       $tipo = $row['tipo'];
 
       require 'modules/card.php';
-
-      foreach ($row as $key => $value):
-      endforeach;
     endwhile;
   else:
     echo "Nenhum livro encontrado! <br> Tente usar outras palavras chave.";

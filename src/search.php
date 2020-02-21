@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
         <!-- global css -->
         <link rel="stylesheet" href="global.css">
+        <!-- personal css -->
+        <link rel="stylesheet" href="search.css">
 
   </head>
   <body>
