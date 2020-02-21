@@ -30,6 +30,16 @@
     $erros[] = '<li class="error">Adicione pelo menos RG ou CPF</li>';
   }
 
+  // verificar se rg ou cpf foi selecionado para verificação de bd
+  if(!empty($cpf)){
+    $cred1 = 'cpf';
+    $cred2 = 'CPF';
+    $cred3 = $cpf;
+  }else{
+    $cred1 = 'rg';
+    $cred2 = 'RG';
+    $cred3 = $rg;
+  }
   // verificar se o email tem acento
   if(preg_match('/[^A-Za-z0-9@.]/',$email)){
     $erros[] = '<li class="error">Seu email não pode ter acento</li>';
@@ -59,24 +69,17 @@
     $erros[] = '<li class="error">Sua senha precisa ter pelo menos um numero</li>';
   }
 
-    $sql = "SELECT login FROM usuarios WHERE login = '$login'";
-    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
-      $erros[] = '<li class="error">O login informado já está em uso</li>';
-    }
+    $var1 = array('login','email',$cred1);
+    $var2 = array('Login','Email',$cred2);
+    $var3 = array($login,$email,$cred3);
+    $full = 0;
 
-    $sql = "SELECT email FROM usuarios WHERE email = '$email'";
-    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
-      $erros[] = '<li class="error">O email informado já está cadastrado</li>';
-    }
-
-    $sql = "SELECT cpf FROM usuarios WHERE cpf = '$cpf'";
-    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
-      $erros[] = '<li class="error">O CPF informado já está cadastrado</li>';
-    }
-    
-    $sql = "SELECT rg FROM usuarios WHERE rg = '$rg'";
-    if(mysqli_num_rows($resultado = mysqli_query($connect,$sql)) > 0){
-      $erros[] = '<li class="error">O RG informado já está cadastrado</li>';
+    foreach($var1 as $value){
+      $sql = "SELECT $value FROM usuarios WHERE $value = '$var3[$full]'";
+      if(mysqli_num_rows(mysqli_query($connect,$sql)) > 0){
+        $erros[] = "<li class='error'>O $var2[$full] informado já está em uso</li>";
+      }
+      $full += 1;
     }
 
 
