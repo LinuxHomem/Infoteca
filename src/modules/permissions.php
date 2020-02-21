@@ -16,27 +16,21 @@
 
     function emprestimo(){
       if($GLOBALS['dados']["distincao"] == 5){
-        // BLOAQUEAR EMPRESTIMO
+        // BLOQUEAR EMPRESTIMO
       }
     }
 
     function devolucao(){
       for($count=3;$count<5;$count++){
         if($GLOBALS['dados']["distincao"] == $count){
-          // BLOAQUEAR DEVOLUÇÃO
+          // BLOQUEAR DEVOLUÇÃO
         }
       }
     }
 
     function livro(){
       if($GLOBALS['dados']["distincao"] != 1){
-        // BLOAQUEAR ADIÇÃO/SUBTRAÇÃO DE LIVROS
-      }
-    }
-
-    function livro(){
-      if($GLOBALS['dados']["distincao"] != 1){
-        // BLOAQUEAR ADIÇÃO/SUBTRAÇÃO DE LIVROS
+        // BLOQUEAR ADIÇÃO/SUBTRAÇÃO DE LIVROS
       }
     }
 
