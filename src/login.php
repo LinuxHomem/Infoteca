@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
     <!-- global css -->
     <link rel="stylesheet" href="global.css">
+    <!-- personal css -->
+    <link rel="stylesheet" href="login.css">
 
   </head>
   <body>
@@ -29,7 +31,7 @@
     ?>
 
     <!-- secao de login -->
-    <div id="login_section">
+    <div class="container w-50 mt-3">
       <center>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
           <div class="form-group">

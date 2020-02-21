@@ -2,25 +2,17 @@
   // definiar fuso-horário
   date_default_timezone_set("america/sao_paulo");
   // armazenar dados de cadastro em variáveis
-  $nome = mysqli_escape_string($connect,$_POST['nome']);
-  $login = mysqli_escape_string($connect,$_POST['login']);
-  $senha = mysqli_escape_string($connect,$_POST['senha']);
-  $email = mysqli_escape_string($connect,$_POST['email']);
-  $cpf = mysqli_escape_string($connect,$_POST['cpf']);
-  $rg = mysqli_escape_string($connect,$_POST['rg']);
-  $sexo = mysqli_escape_string($connect,$_POST['sexo']);
-  $distincao = mysqli_escape_string($connect,$_POST['distincao']);
-  $curso = mysqli_escape_string($connect,$_POST['curso']);
-  $serie = mysqli_escape_string($connect,$_POST['serie']);
-  $data_nasc = mysqli_escape_string($connect,$_POST['data_nasc']);
-  $telefone = mysqli_escape_string($connect,$_POST['telefone']);
-  $celular = mysqli_escape_string($connect,$_POST['celular']);
-  $turno = mysqli_escape_string($connect,$_POST['turno']);
+  $name = array('nome','login','senha','email','cpf','rg','sexo','distincao','curso','serie','data_nasc','telefone','celular','turno');
+  $count = 0;
+  foreach($name as $value){
+    $$name[$count] = mysqli_escape_string($connect,$_POST["$name[$count]"]);
+    $count++;
+  }
 
   // armazenar data de adição
   $data_adc = date("Y") . "-" . date("m") . "-" . date("d");
 
-  // converter data para modelo americano
+  // converter data de nascimento para modelo americano
   $data_nasc = substr($data_nasc,6,4) . "-" . substr($data_nasc,3,2) . "-" . substr($data_nasc,0,2);
 
   $erros = array();
@@ -69,35 +61,36 @@
     $erros[] = '<li class="error">Sua senha precisa ter pelo menos um numero</li>';
   }
 
-    $var1 = array('login','email',$cred1);
-    $var2 = array('Login','Email',$cred2);
-    $var3 = array($login,$email,$cred3);
-    $full = 0;
+  // verificar se o login/email/cpf/rg já foi cadastrado no bd
+  $var1 = array('login','email',$cred1);
+  $var2 = array('Login','Email',$cred2);
+  $var3 = array($login,$email,$cred3);
+  $full = 0;
 
-    foreach($var1 as $value){
-      $sql = "SELECT $value FROM usuarios WHERE $value = '$var3[$full]'";
-      if(mysqli_num_rows(mysqli_query($connect,$sql)) > 0){
-        $erros[] = "<li class='error'>O $var2[$full] informado já está em uso</li>";
-      }
-      $full += 1;
+  foreach($var1 as $value){
+    $sql = "SELECT $value FROM usuarios WHERE $value = '$var3[$full]'";
+    if(mysqli_num_rows(mysqli_query($connect,$sql)) > 0){
+      $erros[] = "<li class='error'>O $var2[$full] informado já está em uso</li>";
     }
+    $full += 1;
+  }
 
 
-    // verificar se tem erros
-    if(!empty($erros)){
-      echo "<center>";
-      foreach ($erros as $value) {
-        echo $value;
-      }
-      echo "</center>";
+  // verificar se tem erros / se não -> registrar no banco de dados
+  if(!empty($erros)){
+    echo "<center>";
+    foreach ($erros as $value) {
+      echo $value;
+    }
+    echo "</center>";
+  }else{
+    $sql = "INSERT INTO usuarios (`id`, `senha`, `nome`, `email`, `cpf`, `rg`, `sexo`, `data_nasc`, `data_adc`, `telefone`, `celular`, `serie`, `curso`, `distincao`, `turno`, `login`) VALUES (NULL, MD5('$senha'), '$nome', '$email', '$cpf', '$rg', '$sexo', '$data_nasc', '$data_adc', '$telefone', '$celular', '$serie', '$curso', '$distincao', '$turno', '$login');";
+    if (mysqli_query($connect, $sql)){
+      echo "<script type='text/javascript'>alert('Usuário Cadastrado!')</script>";
     }else{
-      $sql = "INSERT INTO usuarios (`id`, `senha`, `nome`, `email`, `cpf`, `rg`, `sexo`, `data_nasc`, `data_adc`, `telefone`, `celular`, `serie`, `curso`, `distincao`, `turno`, `login`) VALUES (NULL, MD5('$senha'), '$nome', '$email', '$cpf', '$rg', '$sexo', '$data_nasc', '$data_adc', '$telefone', '$celular', '$serie', '$curso', '$distincao', '$turno', '$login');";
-      if (mysqli_query($connect, $sql)){
-      // PAG CADASTRADOS
-      }else{
-        echo "Error: " . $sql . "<br>" . mysqli_error($connect);
-      }
+      echo "Error: " . $sql . "<br>" . mysqli_error($connect);
     }
+  }
 
   mysqli_close($connect);
 
