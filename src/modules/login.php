@@ -27,7 +27,7 @@
       if(mysqli_num_rows($return) == 1){
         $dados = mysqli_fetch_array($return);
         $_SESSION['logado'] = true;
-        $_SESSION['id_usuario'] = $dados['id'];
+        $_SESSION['id'] = $dados['id'];
         $_SESSION['login'] = $dados['login'];
         header('Location:index.php');
       }elseif(!empty($login) and !empty($senha)){

@@ -1,4 +1,5 @@
 <?php
+
   // definiar fuso-horário
   date_default_timezone_set("america/sao_paulo");
   // armazenar dados de cadastro em variáveis

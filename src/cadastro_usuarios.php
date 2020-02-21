@@ -29,6 +29,9 @@
     require_once 'modules/bd_connect.php';
     // importar navbar
     require_once 'modules/navbar.php';
+    // verificar permissão
+    require_once 'modules/permissions.php';
+    cadastro();
     ?>
 
     <!-- title -->
