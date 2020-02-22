@@ -2,6 +2,11 @@
 
   // definiar fuso-horário
   date_default_timezone_set("america/sao_paulo");
+
+  if(!isset($_POST['curso'])){
+    $_POST['curso'] = '';
+    $_POST['serie'] = '';
+  }
   // armazenar dados de cadastro em variáveis
   $name = array('nome','login','senha','email','cpf','rg','sexo','distincao','curso','serie','data_nasc','telefone','celular','turno');
   $count = 0;

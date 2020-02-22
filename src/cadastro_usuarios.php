@@ -124,7 +124,7 @@
           <!-- input distinção -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <select name="distincao" class="custom-select" id="distincao" required>
+              <select onchange="if (this.selectedIndex) adc();" name="distincao" class="custom-select" id="distincao" required>
                 <option value="">Escolha...</option>
                 <option value="1">Bibliotecário</option>
                 <option value="2">Professor</option>
@@ -139,38 +139,8 @@
           </div>
         </div>
 
-        <!-- input curso -->
-        <div class="row">
-          <div class="col-sm">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="curso">Curso</label>
-              </div>
-              <select name="curso" class="custom-select" id="curso" required>
-                <option value="">Escolha...</option>
-                <option value="1">Desenvolvimento de Sistemas</option>
-                <option value="2">Desgin de Interiores</option>
-                <option value="3">Edificações</option>
-                <option value="4">Informática Para Internet</option>
-                <option value="5">Logística</option>
-              </select>
-            </div>
-          </div>
+        <div id="aluno">
 
-          <!-- input série -->
-          <div class="col-sm">
-            <div class="input-group mb-3">
-              <select name="serie" class="custom-select" id="serie" required>
-                <option value="">Escolha...</option>
-                <option value="1">1°Ano</option>
-                <option value="2">2°Ano</option>
-                <option value="3">3°Ano</option>
-              </select>
-              <div class="input-group-append">
-                <label class="input-group-text" for="serie">Série</label>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- input turno -->
@@ -242,6 +212,8 @@
     <!-- mask js -->
     <script src="../vendor/jquery/jquery.mask.js"></script>
     <script src="modules/mask.js"></script>
+    <!-- aluno adct js -->
+    <script src="modules/aluno.js" charset="utf-8"></script>
 
   </body>
 </html>

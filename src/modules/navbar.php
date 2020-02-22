@@ -1,15 +1,15 @@
 <?php
 
   // verificar se já está logado para aterar função do botão login
-  if(isset($_SESSION['logado']) and $_SESSION['logado'] == true):
+  if(isset($_SESSION['logado']) and $_SESSION['logado'] == true){
     $title = 'Sair';
     $action = 'onclick=\'window.location.href = "modules/logout.php"\'';
     $disable = 'visible';
-  else:
+  }else{
     $title = 'Entrar';
     $action = 'onclick=\'window.location.href = "login.php"\'';
     $disable = 'invisible';
-  endif;
+  }
  ?>
 
 <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">

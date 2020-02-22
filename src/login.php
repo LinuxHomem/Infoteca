@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php
-    // iniciar sessao
-    session_start();?>
+    // abrir sessão
+    session_start();
+     ?>
 
     <!-- import css -->
     <!-- bootstrap css -->
@@ -51,6 +52,8 @@
     <script src="../vendor/jquery/3.4.1.min.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+
+
 
   </body>
 </html>
