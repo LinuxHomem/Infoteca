@@ -1,0 +1,34 @@
+.img-livro{
+  max-width: 15%;
+}
+
+.title-livro{
+  font-size: 30px;
+  color: #595959 !important;
+}
+
+.autor-livro{
+  font-size: 20px;
+  color: #595959 !important;
+}
+
+.tipo-livro{
+  font-size: 18px;
+  color: #595959 !important;
+}
+
+.id-livro{
+  font-size: 15px;
+  color: #595959 !important;
+  float: right;
+}
+
+.descricao-livro{
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+  #img-livro{
+    max-width: 50%;
+  }
+}

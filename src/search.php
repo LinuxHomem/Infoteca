@@ -8,13 +8,18 @@
 
         <?php
     		// iniciar sessao
-    		session_start();?>
+    		session_start();
+        // verificar se sessão expirou
+    		require 'modules/session.php';
+        ?>
 
         <!-- import css -->
         <!-- bootstrap css -->
         <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
         <!-- global css -->
         <link rel="stylesheet" href="global.css">
+        <!-- personal css -->
+        <link rel="stylesheet" href="search.css">
 
   </head>
   <body>
@@ -24,15 +29,22 @@
     require_once 'modules/navbar.php';
     // importar modulo de conexao com o banco de dados
     require_once 'modules/bd_connect.php';
-    // importar modulo de pesquisa
-    require_once 'modules/search.php';
     ?>
 
+    <center><a style="font-size: 40px;" id="title">Resultados da Pesquisa: <?php echo $_GET['search']; ?></a></center>
+
+    <div class="container w-75">
+      <?php
+      // importar modulo de pesquisa
+      require_once 'modules/search.php';
+        ?>
+    </div>
+
     <!-- import js -->
-    <!-- jquery js -->
-    <script src="../vendor/jquery/3.4.1.min.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+    <!-- popper js -->
+    <script src="../vendor/popper/popper.js"></script>
 
   </body>
 </html>

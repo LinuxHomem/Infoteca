@@ -9,24 +9,27 @@
 		<?php
 		// iniciar sessao
 		session_start();
+    // verificar se sessão expirou
+		require 'modules/session.php';
 		?>
 
 		<!-- import css -->
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
-		<!-- global css -->
-		<link rel="stylesheet" href="global.css">
     <!-- personal css -->
     <link rel="stylesheet" href="cadastro.css">
+    <!-- global css -->
+    <link rel="stylesheet" href="global.css">
 
   </head>
   <body>
 
     <?php
     // importar modulo de permissão
-    require_once 'modules/permissions.php';
+    require 'modules/permissions.php';
+    cadastro();
     // importar modulo de conexao com o banco de dados
-    require_once 'modules/bd_connect.php';
+    require 'modules/bd_connect.php';
     // importar navbar
     require_once 'modules/navbar.php';
     ?>
@@ -48,7 +51,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Nome Completo</span>
           </div>
-          <input name="nome" required type="text" class="form-control" placeholder="Ex.: Ronildo Aparecido Ferreira">
+          <input name="nome" required type="text" class="form-control" placeholder="Ex.: Ronildo Aparecido Ferreira" autofocus>
         </div>
 
         <!-- input login -->
@@ -121,7 +124,7 @@
           <!-- input distinção -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <select name="distincao" class="custom-select" id="distincao" required>
+              <select onchange="if(this.selectedIndex)adc();" name="distincao" class="custom-select" id="distincao" required>
                 <option value="">Escolha...</option>
                 <option value="1">Bibliotecário</option>
                 <option value="2">Professor</option>
@@ -136,38 +139,8 @@
           </div>
         </div>
 
-        <!-- input curso -->
-        <div class="row">
-          <div class="col-sm">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="curso">Curso</label>
-              </div>
-              <select name="curso" class="custom-select" id="curso" required>
-                <option value="">Escolha...</option>
-                <option value="1">Desenvolvimento de Sistemas</option>
-                <option value="2">Desgin de Interiores</option>
-                <option value="3">Edificações</option>
-                <option value="4">Informática Para Internet</option>
-                <option value="5">Logística</option>
-              </select>
-            </div>
-          </div>
+        <div id="aluno">
 
-          <!-- input série -->
-          <div class="col-sm">
-            <div class="input-group mb-3">
-              <select name="serie" class="custom-select" id="serie" required>
-                <option value="">Escolha...</option>
-                <option value="1">1°Ano</option>
-                <option value="2">2°Ano</option>
-                <option value="3">3°Ano</option>
-              </select>
-              <div class="input-group-append">
-                <label class="input-group-text" for="serie">Série</label>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- input turno -->
@@ -190,7 +163,7 @@
           <!-- input data de nascimento -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <input id="data_nasc" name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24-12-2003">
+              <input id="data_nasc" name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24/12/2003">
               <div class="input-group-append">
                 <span class="input-group-text">Data de Nascimento</span>
               </div>
@@ -233,12 +206,14 @@
     <!-- jquery js -->
     <script src="../vendor/jquery/3.4.1.min.js"></script>
     <!-- popper js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
     <!-- mask js -->
     <script src="../vendor/jquery/jquery.mask.js"></script>
     <script src="modules/mask.js"></script>
+    <!-- aluno adct js -->
+    <script src="modules/aluno.js" charset="utf-8"></script>
 
   </body>
 </html>

@@ -7,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php
-    // iniciar sessao
-    session_start();?>
+    // abrir sessão e verificar se sessão já expirou
+    session_start();
+    ?>
 
     <!-- import css -->
     <!-- bootstrap css -->
     <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
     <!-- global css -->
     <link rel="stylesheet" href="global.css">
+    <!-- personal css -->
+    <link rel="stylesheet" href="login.css">
 
   </head>
   <body>
@@ -23,18 +26,18 @@
     // importar navbar
     require_once 'modules/navbar.php';
     // importar modulo de conexao com o banco de dados
-    require_once 'modules/bd_connect.php';
+    require 'modules/bd_connect.php';
     // importar modulo de login
-    require_once 'modules/login.php';
+    require 'modules/login.php';
     ?>
 
     <!-- secao de login -->
-    <div id="login_section">
+    <div class="container w-50 mt-3">
       <center>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
           <div class="form-group">
             <a>Login</a>
-            <input type="text" class="form-control" name="login">
+            <input type="text" class="form-control" name="login" autofocus>
             <a>Senha</a>
             <input type="password" class="form-control" name="senha">
             <small>Jamais compartilhe sua senha.</small>
@@ -47,6 +50,8 @@
     <!-- import js -->
     <!-- jquery js -->
     <script src="../vendor/jquery/3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
 
