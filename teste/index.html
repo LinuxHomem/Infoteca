@@ -9,18 +9,36 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="style.css">
+
 	<title>Olá, mundo!</title>
 </head>
 <body>
 
-	<input id="campo-busca" placeholder="Digite o nome do livro">
-	<button id="botao" onsubmit="return pegaLivros">Pesquisar</button>
+	<input id="campo-busca" class="form-control" placeholder="Digite o nome do livro"><br>
+	<button id="botao" onsubmit="return pegaLivros" class="btn btn-dark">Pesquisar</button>
+
 
 	<div class="lista-livros">
-		
+		<div class="livro">
+			<h2 class="titulo">Im livro</h2>
+			<img class="imagem-livro" src="content.jpg">
+			<p class="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tincidunt est. Pellentesque sollicitudin, dui
+			dictum bibendum rutrum, mauris turpis pellentesque ex, quis eleifend eros diam quis ex. Ut quis tortor dignissim, cursus
+			libero non, vestibulum magna. Aliquam eu turpis vitae ipsum bibendum volutpat at vitae nunc. Suspendisse potenti.</p>
+			
+
+			<p class="autores-titulo"><strong>Escrito por:</strong></p>
+			<div class="autores">
+				<p>Manuel Costa</p>
+				<p>Julio Silva</p>
+			</div>
+
+			<p class="data-titulo"><strong>Publicado em:</strong></p>
+			<p class="data">24/4/2024</p>
+		</div>
 	</div>
 
-	<!-- AIzaSyA9bmUVTuY0jMbF6CCimfl1T2FjxkbNk08 -->
 	<!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -33,6 +51,7 @@
 		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="script.js"></script>
+	<script src="tradutor.js"></script>
 	
 </body>
 
