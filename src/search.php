@@ -8,7 +8,10 @@
 
         <?php
     		// iniciar sessao
-    		session_start();?>
+    		session_start();
+        // verificar se sessão expirou
+    		require 'modules/session.php';
+        ?>
 
         <!-- import css -->
         <!-- bootstrap css -->

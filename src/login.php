@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?php
-    // abrir sessão
+    // abrir sessão e verificar se sessão já expirou
     session_start();
-     ?>
+    ?>
 
     <!-- import css -->
     <!-- bootstrap css -->
@@ -26,9 +26,9 @@
     // importar navbar
     require_once 'modules/navbar.php';
     // importar modulo de conexao com o banco de dados
-    require_once 'modules/bd_connect.php';
+    require 'modules/bd_connect.php';
     // importar modulo de login
-    require_once 'modules/login.php';
+    require 'modules/login.php';
     ?>
 
     <!-- secao de login -->
@@ -54,6 +54,6 @@
     <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
-    
+
   </body>
 </html>

@@ -30,6 +30,7 @@
         $_SESSION['id'] = $dados['id'];
         $_SESSION['login'] = $dados['login'];
         $_SESSION['distincao'] = $dados['distincao'];
+        setcookie('session','session',time()+600);
         header('Location:index.php');
       }elseif(!empty($login) and !empty($senha)){
         $erros[] = "<li class='error'>Senha Incorreta!</li>";
