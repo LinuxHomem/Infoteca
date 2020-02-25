@@ -31,13 +31,11 @@
     require_once 'modules/navbar.php';
     ?>
 
-    
+
 
     <!-- import js -->
-    <!-- jquery js -->
-    <script src="../vendor/jquery/3.4.1.min.js"></script>
     <!-- popper js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
     <!-- mask js -->

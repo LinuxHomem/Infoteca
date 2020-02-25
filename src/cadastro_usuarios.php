@@ -51,7 +51,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Nome Completo</span>
           </div>
-          <input name="nome" required type="text" class="form-control" placeholder="Ex.: Ronildo Aparecido Ferreira">
+          <input name="nome" required type="text" class="form-control" placeholder="Ex.: Ronildo Aparecido Ferreira" autofocus>
         </div>
 
         <!-- input login -->
@@ -124,7 +124,7 @@
           <!-- input distinção -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <select onchange="if (this.selectedIndex) adc();" name="distincao" class="custom-select" id="distincao" required>
+              <select onchange="if(this.selectedIndex)adc();" name="distincao" class="custom-select" id="distincao" required>
                 <option value="">Escolha...</option>
                 <option value="1">Bibliotecário</option>
                 <option value="2">Professor</option>
@@ -206,7 +206,7 @@
     <!-- jquery js -->
     <script src="../vendor/jquery/3.4.1.min.js"></script>
     <!-- popper js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
     <!-- mask js -->

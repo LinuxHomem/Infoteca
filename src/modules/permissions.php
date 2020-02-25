@@ -6,6 +6,7 @@
     $id = $_SESSION['id'];
     $sql = "SELECT * FROM usuarios WHERE id = '$id'";
     $dados = mysqli_fetch_array(mysqli_query($connect,$sql));
+    mysqli_close($connect);
     global $dados;
 
     function cadastro(){

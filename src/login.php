@@ -37,7 +37,7 @@
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
           <div class="form-group">
             <a>Login</a>
-            <input type="text" class="form-control" name="login">
+            <input type="text" class="form-control" name="login" autofocus>
             <a>Senha</a>
             <input type="password" class="form-control" name="senha">
             <small>Jamais compartilhe sua senha.</small>
@@ -50,10 +50,10 @@
     <!-- import js -->
     <!-- jquery js -->
     <script src="../vendor/jquery/3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="../vendor/popper/popper.js"></script>
     <!-- bootstrap js -->
     <script src="../vendor/bootstrap/js/bootstrap.js"></script>
-
-
-
+    
   </body>
 </html>

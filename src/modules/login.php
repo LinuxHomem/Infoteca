@@ -29,6 +29,7 @@
         $_SESSION['logado'] = true;
         $_SESSION['id'] = $dados['id'];
         $_SESSION['login'] = $dados['login'];
+        $_SESSION['distincao'] = $dados['distincao'];
         header('Location:index.php');
       }elseif(!empty($login) and !empty($senha)){
         $erros[] = "<li class='error'>Senha Incorreta!</li>";
