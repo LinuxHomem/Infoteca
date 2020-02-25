@@ -1,0 +1,60 @@
+.livro{
+    padding: 5px;
+    margin-top: 15px;
+    width: 700px;
+
+    border-color: black;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+
+    display: grid;
+	grid-template-columns: 130px auto; /* Divisões das Colunas */
+	grid-template-rows: auto auto 25px auto auto; /* Divisões das Linhas */
+	grid-template-areas: "titulo titulo"
+						 "imagem descricao"
+                         "autoresT autoresT"
+                         "autores autores"
+                         "dataT data";
+    grid-gap: 5px;
+}
+
+.livro p{
+    padding: 0;
+    margin: 0;
+}
+
+.livro h2{
+    grid-area: titulo;
+}
+
+.imagem-livro{
+    grid-area: imagem;
+}
+
+.descricao{
+    grid-area: descricao;
+    text-align: justify;
+    margin-left: 8px;
+}
+
+.autores-titulo{
+    grid-area: autoresT;
+    margin-top: 50px;
+}
+
+.autores{
+    grid-area: autores;
+}
+
+.autores p{
+    margin-top: 0px;
+}
+
+.data-titulo{
+    grid-area: dataT;
+}
+
+.data{
+    grid-area: data;
+}
