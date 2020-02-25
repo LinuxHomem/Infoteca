@@ -26,14 +26,12 @@
 
     <?php
     // importar modulo de permissão
-    require_once 'modules/permissions.php';
+    require 'modules/permissions.php';
+    cadastro();
     // importar modulo de conexao com o banco de dados
-    require_once 'modules/bd_connect.php';
+    require 'modules/bd_connect.php';
     // importar navbar
     require_once 'modules/navbar.php';
-    // verificar permissão
-    require_once 'modules/permissions.php';
-    cadastro();
     ?>
 
     <!-- title -->
@@ -165,7 +163,7 @@
           <!-- input data de nascimento -->
           <div class="col-sm">
             <div class="input-group mb-3">
-              <input id="data_nasc" name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24-12-2003">
+              <input id="data_nasc" name="data_nasc" required type="text" class="form-control" placeholder="Ex.: 24/12/2003">
               <div class="input-group-append">
                 <span class="input-group-text">Data de Nascimento</span>
               </div>

@@ -1,6 +1,16 @@
 <?php
 
-  $search = mysqli_escape_string($connect,$_GET['search']);
+  // proteger contra sql injection e xss
+  function clear($input){
+    global $connect;
+    // verificar códigos sql
+    $limpar = mysqli_escape_string($connect,$input);
+    // verificar códigos html
+    $limpar = htmlspecialchars($limpar);
+    return $limpar;
+  }
+
+  $search = clear($_GET['search']);
   if(empty($search)){
     header('Location:index.php');
   }
@@ -23,5 +33,6 @@
     echo "Nenhum livro encontrado! <br> Tente usar outras palavras chave.";
   endif;
 
+  mysqli_close($connect);
 
  ?>

@@ -5,11 +5,21 @@
     header('location:index.php');
   }
 
+  // proteger contra sql injection e xss
+  function clear($input){
+    global $connect;
+    // verificar códigos sql
+    $limpar = mysqli_escape_string($connect,$input);
+    // verificar códigos html
+    $limpar = htmlspecialchars($limpar);
+    return $limpar;
+  }
+
   // verificar se o botão foi pressionado e armazenar o login e senha
   if(isset($_POST['btn_enter'])){
     $erros = array();
-    $login = mysqli_escape_string($connect,$_POST['login']);
-    $senha = mysqli_escape_string($connect,$_POST['senha']);
+    $login = clear($connect,$_POST['login']);
+    $senha = clear($connect,$_POST['senha']);
 
 
   // verificar se algum dos campos está vazio

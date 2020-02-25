@@ -1,5 +1,15 @@
 <?php
 
+  // proteger contra sql injection e xss
+  function clear($input){
+    global $connect;
+    // verificar códigos sql
+    $limpar = mysqli_escape_string($connect,$input);
+    // verificar códigos html
+    $limpar = htmlspecialchars($limpar);
+    return $limpar;
+  }
+
   // criar array que armazenará os erros
   $erros = array();
 
@@ -15,6 +25,7 @@
     $_POST['curso'] = '';
     $_POST['serie'] = '';
   }
+
   //verificar se existe a varivel e armazenar dados de cadastro em variáveis
   $name = array('nome','login','senha','email','cpf','rg','sexo','distincao','curso','serie','data_nasc','telefone','celular','turno');
   $count = 0;
@@ -25,14 +36,15 @@
       $ver = true;
     }
   }
+
   if($ver == false){
     foreach($name as $value){
-      $$name[$count] = mysqli_escape_string($connect,$_POST["$name[$count]"]);
+      $$name[$count] = clear($_POST["$name[$count]"]);
       $count++;
     }
 
     // armazenar data de adição
-    $data_adc = date("Y") . "-" . date("m") . "-" . date("d");
+    $data_adc = date("Y-m-d");
 
     // converter data de nascimento para modelo americano
     $data_nasc = substr($data_nasc,6,4) . "-" . substr($data_nasc,3,2) . "-" . substr($data_nasc,0,2);
