@@ -3,18 +3,30 @@
   // verificar se já está logado para aterar função do botão login
   if(isset($_SESSION['logado']) and $_SESSION['logado'] == true){
     $title = 'Sair';
-    $action = 'onclick=\'window.location.href = "modules/logout.php"\'';
     $perfil = 'visible';
+    if($_SERVER['PHP_SELF'] == '/src/index.php'){
+      $action = 'onclick=\'window.location.href = "controller/logout.php"\'';
+    }else{
+      $action = 'onclick=\'window.location.href = "../controller/logout.php"\'';
+    }
   }else{
     $title = 'Entrar';
-    $action = 'onclick=\'window.location.href = "login.php"\'';
     $perfil = 'invisible';
+    if($_SERVER['PHP_SELF'] == '/src/index.php'){
+      $action = 'onclick=\'window.location.href = "view/login.php"\'';
+    }else{
+      $action = 'onclick=\'window.location.href = "/login.php"\'';
+    }
   }
 
   if(isset($_SESSION['distincao']) and $_SESSION['distincao'] == 1){
     $tag = 'div class="mr-2 dropdown';
     $init = '<button class="my-2 my-sm-0 mr-2 btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-    $rest = '</button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="cadastro_usuarios.php">Cadastro Usuários</a><a class="dropdown-item" href="cadastro_livros.php">Cadastro Livros</a></div></div>';
+    if($_SERVER['PHP_SELF'] == '/src/index.php'){
+      $rest = '</button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="view/cadastro_usuario.php">Cadastro Usuários</a><a class="dropdown-item" href="view/cadastro_livro.php">Cadastro Livros</a></div></div>';
+    }else{
+      $rest = '</button><div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="cadastro_usuario.php">Cadastro Usuários</a><a class="dropdown-item" href="cadastro_livro.php">Cadastro Livros</a></div></div>';
+    }
   }else{
     $init = '';
     $tag = 'a class="mr-2';

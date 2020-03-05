@@ -6,7 +6,7 @@ html{
 
 @font-face {
      font-family: Caviar Dreams;
-     src: url('../font/CaviarDreams.ttf');
+     src: url('../../font/CaviarDreams.ttf');
 }
 
 ::-webkit-scrollbar {
@@ -30,4 +30,3 @@ html{
   font-family: Caviar Dreams;
   font-size: 70px;
 }
-  

@@ -1,3 +1,11 @@
+<?php
+
+
+
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -10,7 +18,7 @@
 		// iniciar sessao
 		session_start();
 		// verificar se sessão expirou
-		require 'modules/session.php';
+		require_once 'controller/session.php';
 		?>
 
 		<!-- import css -->
@@ -19,14 +27,14 @@
 		<!-- personal css -->
 		<link rel="stylesheet" href="index.css">
 		<!-- global css -->
-		<link rel="stylesheet" href="global.css">
+		<link rel="stylesheet" href="view/css/global.css">
 
 	</head>
 	<body>
 
 		<?php
 		// importar navbar
-		require_once 'modules/navbar.php';
+		require_once 'view/modules/navbar.php';
 		?>
 
 		<header class="page-header header container-fluid">
@@ -42,7 +50,7 @@
 				 		<div id="search" class="col-sm-6">
 							<center>
 								<a id="title" style="color: #ffffff;">Pesquisar um Livro</a>
-								<form method="get" action="search.php">
+								<form method="get" action="controller/search.php">
 									<div class="form-group">
 										<input type="text" class="form-control" name="search" placeholder="Ex.: O Conde de Monte Cristo" required>
 										<small id='small' style="color:#ffffff;">Pesquise pelo nome do livro.</small>

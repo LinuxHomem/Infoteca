@@ -1,47 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
+<?php
 
-    <meta charset="utf-8">
-		<title>Infoteca - Cadastro de Usuários</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<?php
-		// iniciar sessao
-		session_start();
-    // verificar se sessão expirou
-		require 'modules/session.php';
-		?>
-
-		<!-- import css -->
-		<!-- bootstrap css -->
-		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+// importar head
+require_once 'modules/head.php'
+?>
     <!-- personal css -->
-    <link rel="stylesheet" href="cadastro.css">
-    <!-- global css -->
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="css/cadastro.css">
 
   </head>
   <body>
-
-    <?php
-    // importar modulo de permissão
-    require 'modules/permissions.php';
-    cadastro();
-    // importar modulo de conexao com o banco de dados
-    require 'modules/bd_connect.php';
-    // importar navbar
-    require_once 'modules/navbar.php';
-    ?>
 
     <!-- title -->
     <center>
       <a id="title">Cadastrar Usuário</a>
     </center>
-    <?php // importar modulo de cadastro
-    if(isset($_POST['btn_cadastro'])){
-      require_once 'modules/cadastro.php';
-    } ?>
+    <?php
+    // importar modulo de cadastro
+    require '../model/crud_usuario.php';
+
+    if(isset($_POST['cadastro'])){
+      $crud_user = new \src\model\CrudUsuario();
+      $return = $crud_user->create($_POST);
+    }
+     ?>
     <!-- formulário cadastrar -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <div class="container w-50 p-3" style="background-color: rgba(0,0,0,0.3)">
@@ -195,25 +175,19 @@
 
         <!-- btn submit -->
         <center>
-          <button name="btn_cadastro" style="font-size:20px;"id="btn_search" type="submit" class="btn btn-danger">Cadastrar</button>
+          <button value="usuario" name="cadastro" style="font-size:20px;"id="btn_search" type="submit" class="btn btn-danger">Cadastrar</button>
         </center>
 
       </div>
     </form>
 
 
-    <!-- import js -->
-    <!-- jquery js -->
-    <script src="../vendor/jquery/3.4.1.min.js"></script>
-    <!-- popper js -->
-    <script src="../vendor/popper/popper.js"></script>
-    <!-- bootstrap js -->
-    <script src="../vendor/bootstrap/js/bootstrap.js"></script>
+    <?php require_once 'modules/footer.php' ?>
     <!-- mask js -->
-    <script src="../vendor/jquery/jquery.mask.js"></script>
-    <script src="modules/mask.js"></script>
-    <!-- aluno adct js -->
-    <script src="modules/aluno.js" charset="utf-8"></script>
+    <script src="../../vendor/jquery/jquery.mask.js"></script>
+    <script src="modules/mask_usuario.js"></script>
+    <!-- aluno appnd js -->
+    <script src="../controller/append_aluno.js" charset="utf-8"></script>
 
   </body>
 </html>
