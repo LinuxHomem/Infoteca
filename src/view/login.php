@@ -1,18 +1,27 @@
 <?php
-// importar head
-require_once 'modules/head.php'
+  // iniciar sessão
+  session_start();
+  // importar head
+  require_once 'Modules/Head.php';
+  // importar autoload
+  require_once '../../vendor/autoload.php';
+  // importar crud do usuario
+  require_once '../Controller/CrudUsuario.php';
 ?>
     <!-- personal css -->
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 
   </head>
   <body>
 
     <?php
     // importar navbar
-    require_once 'modules/navbar.php';
-    // importar modulo de login
-    require_once '../controller/login.php';
+    require_once 'Modules/Navbar.php';
+
+    // importar modulo de cadastro
+    if(isset($_POST['btn_login'])){
+      echo login($_POST);
+    }
     ?>
 
     <!-- secao de login -->
@@ -31,7 +40,7 @@ require_once 'modules/head.php'
       </center>
     </div>
 
-    <?php require_once 'modules/footer.php' ?>
+    <?php require_once 'Modules/Footer.php' ?>
 
   </body>
 </html>

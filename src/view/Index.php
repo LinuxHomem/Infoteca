@@ -1,41 +1,18 @@
 <?php
-
-
-
- ?>
-
-
-
-<!DOCTYPE html>
-<html lang="pt-br">
-	<head>
-
-		<meta charset="utf-8">
-		<title>Infoteca - Início</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<?php
-		// iniciar sessao
-		session_start();
-		// verificar se sessão expirou
-		require_once 'controller/session.php';
-		?>
-
-		<!-- import css -->
-		<!-- bootstrap css -->
-		<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.css">
+  // iniciar sessão
+  session_start();
+  // importar head
+  require_once 'Modules/Head.php';
+  // verificar se tempo de sessão expirou
+  require_once '../Controller/Session.php';
+?>
 		<!-- personal css -->
-		<link rel="stylesheet" href="index.css">
-		<!-- global css -->
-		<link rel="stylesheet" href="view/css/global.css">
+		<link rel="stylesheet" href="Css/index.css">
 
 	</head>
 	<body>
 
-		<?php
-		// importar navbar
-		require_once 'view/modules/navbar.php';
-		?>
+	   <?php require_once 'Modules/Navbar.php'; ?>
 
 		<header class="page-header header container-fluid">
 			<div class="overlay">
@@ -73,11 +50,7 @@
       </div>
     </header>
 
-		<!-- import js -->
-		<!-- jquery js -->
-		<script src="../vendor/jquery/3.4.1.min.js"></script>
-		<!-- bootstrap js -->
-		<script src="../vendor/bootstrap/js/bootstrap.js"></script>
+		<?php require_once 'Modules/Footer.php' ?>
 		<!-- header height -->
 		<script type="text/javascript">$('.header').height($(window).height());</script>
 

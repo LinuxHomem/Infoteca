@@ -6,11 +6,6 @@
 		<title>Infoteca - Cadastro de Livros</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<?php
-		// iniciar sessao
-		session_start();
-		?>
-
 		<!-- import css -->
 		<!-- bootstrap css -->
 		<link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.css">

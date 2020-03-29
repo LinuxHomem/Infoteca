@@ -29,5 +29,3 @@ echo
   </blockquote>
 </div>
 </div>";
-
- ?>

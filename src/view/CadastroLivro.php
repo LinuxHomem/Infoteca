@@ -1,8 +1,8 @@
 <?php
-// verificar se sessão expirou
-require_once '../controller/session.php';
-// importar head
-require_once 'modules/head.php'
+  // verificar se sessão expirou
+  require_once '../controller/session.php';
+  // importar head
+  require_once 'modules/head.php'
 ?>
 
   </head>
@@ -22,10 +22,7 @@ require_once 'modules/head.php'
     </center>
 
     <?php
-    // importar modulo de cadastro se o botão for clicado
-    if(isset($_POST['cadastro'])){
-      require_once '../controller/cadastro.php';
-    }
+    
     ?>
 
     <!-- formulário cadastrar -->
@@ -76,7 +73,7 @@ require_once 'modules/head.php'
             <label class="custom-control-label" for="customCheck1">LBA</label>
           </div>
           <!-- btn submit -->
-          <button value="livro" name="cadastro" style="font-size:20px;"id="btn_search" type="submit" class="btn btn-danger">Cadastrar</button>
+          <button value="livro" name="cadastro" id="btn_search" type="submit">Cadastrar</button>
         </center>
 
       </div>

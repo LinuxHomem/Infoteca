@@ -1,6 +1,6 @@
 <?php
 
-  namespace src\model;
+  namespace Src\Model;
 
   class Conexao{
 
@@ -13,5 +13,3 @@
       return self::$instance;
     }
   }
-
- ?>

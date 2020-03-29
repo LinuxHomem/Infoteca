@@ -1,16 +1,9 @@
 <?php
 
-  // importar conexão com banco de dados
-  require_once '../model/bd_connect.php';
-  // importar limpeza de input
-  require_once '../controller/clear_input.php';
-  // importar arquivo de funções de bd
-  require_once '../model/bd_functions.php';
-
   // limpar input
   $search = clear($_GET['search']);
   if(empty($search)){
-    header('Location:../index.php');
+    header('Location: index.php');
   }
 
   // definir pesquisa no bd
@@ -36,8 +29,3 @@
     // se $resultado estiver vazio
     echo "Nenhum livro encontrado! <br> Tente usar outras palavras chave.";
   }
-
-  // fechar conexão com bd
-  mysqli_close($connect);
-
- ?>

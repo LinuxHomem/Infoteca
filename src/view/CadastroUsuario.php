@@ -1,7 +1,15 @@
 <?php
-
-// importar head
-require_once 'modules/head.php'
+  // iniciar sessão
+  session_start();
+  // importar head
+  require_once 'Modules/Head.php';
+  // importar autoload
+  require_once '../../vendor/autoload.php';
+  // importar controller usuario
+  require_once '../Controller/CrudUsuario.php';
+  // importar permissões
+  require_once '../Controller/Permissions.php';
+  bibliotecario();
 ?>
     <!-- personal css -->
     <link rel="stylesheet" href="css/cadastro.css">
@@ -9,19 +17,18 @@ require_once 'modules/head.php'
   </head>
   <body>
 
-    <!-- title -->
-    <center>
-      <a id="title">Cadastrar Usuário</a>
-    </center>
-    <?php
-    // importar modulo de cadastro
-    require '../model/crud_usuario.php';
+    <?php require_once 'Modules/Navbar.php'; ?>
 
-    if(isset($_POST['cadastro'])){
-      $crud_user = new \src\model\CrudUsuario();
-      $return = $crud_user->create($_POST);
+    <!-- title -->
+    <center> <a id="title">Cadastrar Usuário</a> </center>
+
+    <?php
+    // se existir o post do botão ele chama a função criar
+    if(isset($_POST['btn_cadastro'])){
+      create($_POST);
     }
      ?>
+
     <!-- formulário cadastrar -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
       <div class="container w-50 p-3" style="background-color: rgba(0,0,0,0.3)">
@@ -175,19 +182,19 @@ require_once 'modules/head.php'
 
         <!-- btn submit -->
         <center>
-          <button value="usuario" name="cadastro" style="font-size:20px;"id="btn_search" type="submit" class="btn btn-danger">Cadastrar</button>
+          <button value="usuario" name="btn_cadastro" style="font-size:20px;"id="btn_search" type="submit" class="btn btn-danger">Cadastrar</button>
         </center>
 
       </div>
     </form>
 
 
-    <?php require_once 'modules/footer.php' ?>
+    <?php require_once 'Modules/Footer.php' ?>
     <!-- mask js -->
     <script src="../../vendor/jquery/jquery.mask.js"></script>
-    <script src="modules/mask_usuario.js"></script>
+    <script src="Modules/MaskUsuario.js"></script>
     <!-- aluno appnd js -->
-    <script src="../controller/append_aluno.js" charset="utf-8"></script>
+    <script src="../Controller/AppendAluno.js" charset="utf-8"></script>
 
   </body>
 </html>
