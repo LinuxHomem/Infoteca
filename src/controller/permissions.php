@@ -1,21 +1,21 @@
 <?php
-  // se existir um id na sessão prosseguir
-  if(isset($_SESSION['id'])){
+  if(isset($_SESSION['logado'])){
+    // armazenar distinção em uma variável
 
-    function bibliotecario(){
+    function nivel_4(){
       // se distinção for diferente de bibliotecario retornar ao index
-      if(definir() != 1){
+      if($_SESSION['distincao'] != 1){
         header('Location: index.php');
       }
     }
 
-    function emprestimo(){
+    function nivel_3(){
       if($GLOBALS['dados']["distincao"] == 5){
         // BLOQUEAR EMPRESTIMO
       }
     }
 
-    function devolucao(){
+    function nivel_2(){
       for($count=3;$count<5;$count++){
         if($GLOBALS['dados']["distincao"] == $count){
           // BLOQUEAR DEVOLUÇÃO
@@ -23,7 +23,7 @@
       }
     }
 
-    function livro(){
+    function nivel_1(){
       if($GLOBALS['dados']["distincao"] != 1){
         // BLOQUEAR ADIÇÃO/SUBTRAÇÃO DE LIVROS
       }

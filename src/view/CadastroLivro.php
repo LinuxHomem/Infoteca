@@ -1,29 +1,34 @@
 <?php
-  // verificar se sessão expirou
-  require_once '../controller/session.php';
+  // iniciar sessão
+  session_start();
+  // importar permissões
+  require_once '../Controller/Permissions.php';
+  nivel_4();
+  // importar limite de sessão
+  require_once '../Controller/Session.php';
   // importar head
-  require_once 'modules/head.php'
+  require_once 'Modules/Head.php';
+  // importar autoload
+  require_once '../../vendor/autoload.php';
+  // importar controller usuario
+  require_once '../Controller/CrudLivro.php';
+
 ?>
 
   </head>
   <body>
 
-    <?php
-    // importar modulo de permissão
-    require_once '../controller/permissions.php';
-    bibliotecario();
-    // importar navbar
-    require_once 'modules/navbar.php';
-    ?>
+    <?php require_once 'Modules/Navbar.php'; ?>
 
     <!-- title -->
-    <center>
-      <a id="title">Cadastrar Livro</a>
-    </center>
+    <center> <a id="title">Cadastrar Livro</a> </center>
 
     <?php
-    
-    ?>
+    // se existir o post do botão ele chama a função criar
+    if(isset($_POST['btn_cadastro'])){
+      create($_POST);
+    }
+     ?>
 
     <!-- formulário cadastrar -->
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -69,20 +74,20 @@
 
         <center>
           <div class="custom-control custom-checkbox">
-            <input name="lba" type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label" for="customCheck1">LBA</label>
+            <input name="lba" type="checkbox" class="custom-control-input" id="lba">
+            <label class="custom-control-label" for="lba">LBA</label>
           </div>
           <!-- btn submit -->
-          <button value="livro" name="cadastro" id="btn_search" type="submit">Cadastrar</button>
+          <button value='livro' name="btn_cadastro" id="btn_cadastro" type="submit">Cadastrar</button>
         </center>
 
       </div>
     </form>
 
-    <?php require_once 'modules/footer.php' ?>
+    <?php require_once 'Modules/Footer.php' ?>
     <!-- mask js -->
     <script src="../../vendor/jquery/jquery.mask.js"></script>
-    <script src="modules/mask_livro.js"></script>
+    <script src="Modules/MaskLivro.js"></script>
 
   </body>
 </html>

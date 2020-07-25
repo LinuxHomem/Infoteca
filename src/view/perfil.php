@@ -2,7 +2,8 @@
 // verificar se sessão expirou
 require_once '../controller/session.php';
 // importar head
-require_once 'modules/head.php'
+require_once 'modules/head.php';
+session_start();
 ?>
 
   </head>
@@ -11,6 +12,8 @@ require_once 'modules/head.php'
     <?php
     // importar navbar
     require_once 'modules/navbar.php';
+
+    echo $_SESSION['distincao'];
     ?>
 
 

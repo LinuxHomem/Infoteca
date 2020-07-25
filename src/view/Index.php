@@ -29,7 +29,7 @@
 								<a id="title" style="color: #ffffff;">Pesquisar um Livro</a>
 								<form method="get" action="controller/search.php">
 									<div class="form-group">
-										<input type="text" class="form-control" name="search" placeholder="Ex.: O Conde de Monte Cristo" required>
+										<input type="text" class="form-control" name="search" placeholder="Ex.: O Conde de Monte Cristo" required autofocus>
 										<small id='small' style="color:#ffffff;">Pesquise pelo nome do livro.</small>
 									</div>
 									<button id="btn_search" type="submit" class="btn btn-danger">Pesquisar</button>

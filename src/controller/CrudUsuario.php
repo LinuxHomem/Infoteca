@@ -68,16 +68,16 @@
 
       // passar a senha para md5, mudar estilo de data para internacional e gerar data de adição
       $array['senha'] = md5($array['senha']);
-      $array['data_nasc'] = substr($array['data_nasc'],6,4) . "-" . substr($array['data_nasc'],3,2) . "-" . substr($array['data_nasc'],0,2);
+      $array['data_nasc'] = implode('-',array_reverse(explode('/',$array['data_nasc'])));
       $data_adc = date("Y-m-d");
       array_splice($array, 12, 0, $data_adc);
 
       // fazer a limpeza de xss
-      $clean = clear($array);
+      $cleaned = clear($array);
 
       // instanciar model do crud usuario
       $instance = new \Src\Model\CrudUsuario();
-      $instance->create($clean);
+      $instance->create($cleaned);
     }
   }
   // create section

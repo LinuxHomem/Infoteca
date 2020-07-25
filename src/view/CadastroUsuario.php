@@ -1,15 +1,17 @@
 <?php
   // iniciar sessão
   session_start();
+  // importar permissões
+  require_once '../Controller/Permissions.php';
+  nivel_4();
+  // importar limite de sessão
+  require_once '../Controller/Session.php';
   // importar head
   require_once 'Modules/Head.php';
   // importar autoload
   require_once '../../vendor/autoload.php';
   // importar controller usuario
   require_once '../Controller/CrudUsuario.php';
-  // importar permissões
-  require_once '../Controller/Permissions.php';
-  bibliotecario();
 ?>
     <!-- personal css -->
     <link rel="stylesheet" href="css/cadastro.css">

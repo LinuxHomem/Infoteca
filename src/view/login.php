@@ -1,6 +1,8 @@
 <?php
   // iniciar sessão
   session_start();
+  // importar limite de sessão
+  require_once '../Controller/Session.php';
   // importar head
   require_once 'Modules/Head.php';
   // importar autoload

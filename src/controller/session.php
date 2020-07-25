@@ -6,3 +6,9 @@
       header('Location:Logout.php');
     }
   }
+
+  if(isset($_SESSION['logado'])){
+    if(strpos(str_replace('/',' ',$_SERVER['PHP_SELF']),'Login.php') !== false){
+      header('Location:Index.php');
+    }
+  }
